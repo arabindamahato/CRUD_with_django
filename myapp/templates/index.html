@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block title %}
+    <title>Model | Index Page</title>
+    {% endblock %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <!-- <STYLE>a{text-decoration: none;} </STYLE> -->
+    
+</head>
+<body>
+    <!-- <h1 align="center" style="color:#11283e" style="font-family:inherit">PURULIA</h1> -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #00002E;">
+        <a class="navbar-brand" href="#">
+          <h3> <a href="{% url 'myapp:index' %}">Model </a></h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <!-- <div class="collapse navbar-collapse"> -->
+              <!-- <ul class="nav-item"> -->
+              <li><a class="nav-link active" href="{% url 'myapp:display' %}">Display all</a></li>
+              <li><a class="nav-link" href="{% url 'myapp:display_asc' %}">Asc data</a></li>
+              <li><a class="nav-link" href="{% url 'myapp:display_specific' %}">Specific Data</a></li>
+              <li><a class="nav-link" href="{% url 'myapp:filter_data' %}">Filter data</a></li>
+              <li><a class="nav-link" href="{% url 'myapp:like_data' %}">Like Data</a></li> 
+              <li><a class="nav-link" href="{% url 'myapp:topic_form' %}">Form in dropdown</a></li> 
+              <li><a class="nav-link" href="{% url 'myapp:topic_form2' %}">Form in Checkbox</a></li> 
+            <!-- </ul> -->
+            <!-- </div> -->
+          </div>
+        </div>
+      </nav>
+
+      <!-- second nav  -->
+
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #00002E;">
+        <a class="navbar-brand" href="#">
+          <h3> <a href="{% url 'myapp:index' %}"> </a></h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav ml-auto">
+            <!-- <div class="collapse navbar-collapse"> -->
+              <!-- <ul class="nav-item"> -->
+              <li><a class="nav-link" href="{% url 'myapp:create_topic' %}">Add Topic</a></li>
+              <li><a class="nav-link" href="{% url 'myapp:delete_topic' %}">Delete Topic</a></li>
+              <li><a class="nav-link" href="{% url 'myapp:create_webpage' %}">Add Webpage</a></li>
+              <li><a class="nav-link" href="{% url 'myapp:create_access_details' %}">Add Access Details</a></li>
+              <li><a class="nav-link" href="{% url 'myapp:select_webpage' %}">Edit Webpage</a></li>
+              <li><a class="nav-link" href="#">Edit Access Details</a></li>
+               
+            <!-- </ul> -->
+            <!-- </div> -->
+          </div>
+        </div>
+      </nav>
+
+
+      <!-- end second nav  -->
+    {% block body_block %}
+        <div class="container">
+            <div class="jumbotron">
+                <h5 align="center">
+                    Index Page <br>
+                    This project is for displaying data from database in different form.
+                </h5>
+            </div>
+        </div>
+    {% endblock body_block %}
+</body>
+</html>

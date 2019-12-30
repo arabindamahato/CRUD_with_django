@@ -1,0 +1,39 @@
+
+{% extends "index.html" %}
+
+{% block title %}
+    <title> Add Access Details</title>
+{% endblock %}
+
+
+{% block body_block %}
+<div class="container">
+    <div class="jumbotron">      
+    <h5 align="center">
+        If you want to create Access Details then fillup the form proper way.
+    </h5>
+    </div>
+    <h1>Enter the Details to create Access Details</h1> <br>
+    <table>
+    <form method="POST">
+        {% csrf_token %}
+        {% if access_details %}
+        <tr> <td>Choose Webpage Name :<select name="name" id="name">
+            {% for access_detail in access_details %}
+            <option value="{{access_detail}}">{{access_detail.name}}</option>
+            {% endfor %}
+        </select> </td></tr><br>
+        {% endif %}
+        <tr><td>Access Date: <input type="date" name="date" id="date"><br>
+        <tr><td><input class="btn btn-primary" type="submit" value="Submit"></td></tr>
+        
+    </form>
+</table>
+
+    </div>
+{% endblock body_block %}
+
+
+
+
+

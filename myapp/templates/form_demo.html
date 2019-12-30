@@ -1,0 +1,62 @@
+{% extends "index.html" %}
+
+{% block title %}
+    <title> Check topic</title>
+{% endblock %}
+
+
+{% block body_block %}
+<div class="container">
+    <div class="jumbotron">      
+    <h5 align="center">
+        Select a topic name to Display Details of the Topic. <br>
+    </h5> 
+    </div>
+    
+    <h1 align="center">Select the Topic</h1>
+    <table align="center">
+        {% if topics %}
+        <form method="POST">
+            {% csrf_token %}
+           <tr> <td> 
+            <select name="top" id="top">
+            <!-- <select name="top" id="top" multiple> -->
+            {% for topic in  topics %}
+            <option value="{{topic}}">{{topic.top_name}}</option>              
+            {% endfor %}          
+         
+            </select> 
+            <input class="btn btn-primary" type="submit" value="submit">
+        </td> </tr>
+    </form>
+</table>
+    {% else %}
+        <h1>Data not found</h1>
+    {% endif %}
+
+
+
+</div>
+<br>
+<br>
+{% endblock body_block %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

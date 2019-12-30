@@ -1,0 +1,40 @@
+
+{% extends "index.html" %}
+
+{% block title %}
+    <title> Add Webpage</title>
+{% endblock %}
+
+
+{% block body_block %}
+<div class="container">
+    <div class="jumbotron">      
+    <h5 align="center">
+        If you want to create webpage then fillup the form proper way.
+    </h5>
+    </div>
+    <h1>Enter the Details to create Webpage</h1> <br>
+    <table>
+    <form method="POST">
+        {% csrf_token %}
+        {% if topics %}
+        <tr> <td>Choose Topic :<select name="top" id="top">
+            {% for topic in topics %}
+            <option value="{{topic}}">{{topic.top_name}}</option>
+            {% endfor %}
+        </select> </td></tr><br>
+        {% endif %}
+        <tr><td>Webpage Name: <input type="text" name="name" id="name"><br>
+        <tr><td> Webpage Url : <input type="url" name="url" id="url"><br></td></tr>
+        <tr><td><input class="btn btn-primary" type="submit" value="Submit"></td></tr>
+        
+    </form>
+</table>
+
+    </div>
+{% endblock body_block %}
+
+
+
+
+

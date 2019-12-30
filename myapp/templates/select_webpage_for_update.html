@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block title %}
+    <title> Select Webpage</title>
+{% endblock %}
+
+
+{% block body_block %}
+<div class="container">
+    <div class="jumbotron">      
+    <h2 align="center">
+        Select WebPage for update <br>
+    </h2> 
+    </div>
+    <form action="{% url 'myapp:edit_webpage' %}" method="POST" >
+        {% csrf_token %}
+        <h1>Select a record for updation</h1>
+        {% if webpages %}
+        <select name="name" id="name">
+            {% for webpage in webpages %}
+            <option value="{{webpage}}">{{webpage.name}}</option>
+            {% endfor %}
+        </select>
+        {% else %}
+          <h1>No record</h1>
+        {% endif %}
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<br>
+<br>
+{% endblock body_block %}
+
+
+

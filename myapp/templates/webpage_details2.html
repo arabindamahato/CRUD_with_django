@@ -1,0 +1,45 @@
+{% extends "index.html" %}
+
+{% block title %}
+    <title> Check topic</title>
+{% endblock %}
+
+
+{% block body_block %}
+<div class="container">
+    <div class="jumbotron">      
+    <h2 align="center">
+        WebPage Details According to Topic <br>
+    </h2> 
+    <a class="btn btn-primary" href="{% url 'myapp:topic_form2' %}">Choose Topics</a>
+    </div>
+    {% if webpages %}
+    <table border="2pt" class="table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Topic</th>
+            <th>Webpage name</th>
+            <th>Webpage Url</th>
+        </tr>
+    </thead>
+        {% for webpage in webpages %}
+        <tr> 
+            <td>{{webpage.top_name}}</td>
+            <td>{{webpage.name}}</td>
+            <td>{{webpage.url}}</td>
+        </tr>
+        {% endfor %} 
+    </table>
+     
+      
+    {% else %}
+      <h1>Data not found</h1>
+    {% endif %}
+
+</div>
+<br>
+<br>
+{% endblock body_block %}
+
+
+

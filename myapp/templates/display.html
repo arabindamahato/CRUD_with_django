@@ -1,0 +1,115 @@
+{% extends "index.html" %}
+
+{% block title %}
+    <title> Display All</title>
+{% endblock %}
+
+{% block body_block %}
+<div class="container">
+  <div class="jumbotron">      
+  <h5 align="center">
+      All the table data present here all are coming from database.
+      Which are stored in different tables and these are DISPLAYED here in the same table name.
+  </h5>
+  </div>
+  </div>
+
+    <!-- Topic table  -->
+<div class="container">
+  <div class="row">
+      {% if topics %}
+      <strong><h4>Webpage Topic Details</h4></strong>
+      <table class="table align-center">
+          <thead class="thead-dark">
+          <tr>
+              <!-- <th scope="col"></th> --> 
+              <th scope="col">Webpage Topic Name</th>        
+          </tr>
+          </thead>
+          <tbody>
+              {% for topic in topics %}
+          <tr>
+              <!-- <th scope="row"></th> -->
+              <td>{{topic.top_name}}</td>        
+          </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+    {% else %}
+          <h1>No Data Found</h1>
+  {% endif %}
+  
+  </div>
+  </div>
+  <!-- web page table  -->
+     
+  <div class="container">
+      {% if webpages %}
+      <strong><h4>Webpage Deatails</h4></strong>
+      <table class="table">
+          <thead class="thead-dark">
+            <tr>
+                  <th scope="col">Webpage Topic</th>        
+                  <th scope="col">Webpage Name</th>        
+                  <th scope="col">URL</th>   
+            </tr>
+          </thead>
+          <tbody>
+              {% for webpage in webpages %}
+            <tr>
+              <td>{{webpage.top_name}}</td>        
+              <td>{{webpage.name}}</td>        
+              <td>{{webpage.url}}</td> 
+            </tr>
+            {% endfor %}
+            
+          </tbody>
+      </table>
+      {% else %}
+      <thead class="thead-dark">
+          <tr>
+                <th scope="col">Webpage Topic</th>        
+                <th scope="col">Webpage Name</th>        
+                <th scope="col">URL</th>   
+          </tr>
+        </thead>
+          <h1>No Data Found</h1>
+      {% endif %} 
+  </div>
+  
+  
+      <!-- Access Details Table  -->
+  
+  <div class="container">
+      {% if access_details %}
+      <strong><h4>Access Deatails</h4></strong>
+      <table class="table">
+          <thead class="thead-dark">
+            <tr>
+                  <th scope="col">Webpage Name</th>        
+                  <th scope="col">Access Date</th>        
+            </tr>
+          </thead>
+          <tbody>
+              {% for access_detail in access_details %}
+            <tr>
+              <td>{{access_detail.name}}</td>        
+              <td>{{access_detail.date}}</td>        
+            </tr>
+            {% endfor %}
+            
+          </tbody>
+      </table>
+      {% else %}
+      <thead class="thead-dark">
+          <tr>
+              <th scope="col"> Webpage Name </th>        
+              <th scope="col">Access Date</th>
+          </tr>
+        </thead>
+          <h1>No Data Found</h1>
+      {% endif %} 
+  </div>
+  
+  
+{% endblock body_block %}

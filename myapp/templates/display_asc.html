@@ -1,0 +1,42 @@
+{% extends "index.html" %}
+
+{% block title %}
+    <title> Display Asc </title>
+{% endblock %}
+
+{% block body_block %}
+<div class="container">
+  <div class="jumbotron">      
+  <h5 align="center">
+      All the table data present here all are coming from database. And organised into ASCENDING order
+  </h5>
+  </div>
+
+  {% if dates %}
+  <h4>Access Dates in Ascending Order</h4>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <!-- <th scope="col">Webpage Name</th> -->
+                <th scope="col">Webpage Name</th>
+                <th scope="col">Access Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for date in dates  %}
+            <tr>
+                <td>{{ date.name}}</td>
+                <td>{{ date.date}}</td>
+            </tr>
+              
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <h1>
+        no data found
+    </h1>
+    
+  {% endif %}
+  </div>
+  {% endblock body_block %}

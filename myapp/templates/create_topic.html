@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block title %}
+    <title> Add Topic</title>
+{% endblock %}
+
+
+{% block body_block %}
+<div class="container">
+    <div class="jumbotron">      
+    <h5 align="center">
+        If you want to create Topic then fillup the form with a topic name.
+    </h5> 
+    </div>
+    
+    <h1 align="center"> Create Topic Here</h1><br>
+        <form method="POST" align="center">
+            {% csrf_token %}            
+           <b>Topic</b> : <input type="text" name="top" id="top" placeholder="Enter Topic name">
+           <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+
+    </div>
+{% endblock body_block %}
+
+
+
+
+
+
+
+
+
+
+

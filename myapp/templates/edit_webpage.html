@@ -1,0 +1,31 @@
+{% extends "index.html" %}
+
+{% block title %}
+    <title> Edit Webpage</title>
+{% endblock %}
+
+
+{% block body_block %}
+<div class="container">
+    <div class="jumbotron">      
+    <h2 align="center">
+        Edit WebPage for update <br>
+    </h2> 
+    </div>
+    <h1>Edit The fields and click on submit</h1>
+    
+
+    <form action="{% url 'myapp:update_webpage' %}"  method="POST">
+        {% csrf_token %}
+        top_name: <input type="text" name="top" id="top" placeholder="{{webpage.top_name}}" value="{{webpage.top_name}}"><br>
+        name: <input type="text" name="name" id="name" value={{webpage.name}}><br>
+        url: <input type="url" name="url" id="url" value="{{webpage.url}}"><br>
+    <input type="submit" value="Update">
+    </form>
+</div>
+<br>
+<br>
+{% endblock body_block %}
+
+
+

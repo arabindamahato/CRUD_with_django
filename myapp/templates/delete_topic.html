@@ -1,0 +1,55 @@
+{% extends "index.html" %}
+
+{% block title %}
+    <title> Check topic</title>
+{% endblock %}
+
+
+{% block body_block %}
+<div class="container">
+    <div class="jumbotron">      
+    <h5 align="center">
+        Check a topic name you want to delete  <br>
+        If you want you can coose multiple topic for delete.
+    </h5> 
+    </div>
+    <h1 align="center">Choose the Topic for Delete</h1>
+    <table align="center">
+    {% if topics %}
+    <form method="POST">
+        {% csrf_token %}
+        {% for topic in topics  %}
+          
+       <tr> 
+        <td><label for="top">{{topic.top_name}}</label></td>
+        <td><input type="checkbox" name="top" id="top" value="{{topic}}"></td> 
+      </tr>
+       {% endfor %}
+
+    <tr> </tr></tr>
+    <tr><td><input class="btn btn-danger" type="submit" value="Delete"></td> </tr></tr>
+</form>
+</table>
+{% else %}
+    <h1>Data not found</h1>
+{% endif %}
+</div>
+<br>
+<br>
+{% endblock body_block %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
